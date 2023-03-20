@@ -1,0 +1,81 @@
+﻿@using SiteCoreDemo.Areas.Admin.Models;
+@model ConferenceViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Admin_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<section class="=content">
+    <div class="container">
+        @using (Html.BeginForm("Create", "Conferences", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Conferences</legend>
+
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Main.Name)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(i => i.Main.Name, new { @class = "form-control", @placeholder = "Event Name", @tabindex = "1" })
+                        @Html.ValidationMessageFor(model => model.Main.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Main.EventDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(i => i.Main.EventDate,new { @class = "form-control", @placeholder = "Date OF Event", @tabindex = "2", @value=Model.Main.EventDate.ToString("dd-MM-yyyy") })
+                        @Html.ValidationMessageFor(model => model.Main.EventDate)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-label">
+                        <label>Image URL </label>
+
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.ImageFile, new { type = "file" })
+                        @Html.ValidationMessageFor(m => m.ImageFile)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-label">
+                        <label>Detailed URL </label>
+                    </div>
+                    <div class="editor-field">
+
+                        @Html.TextBoxFor(m => m.PdfFile, new { type = "file" })
+                        @Html.ValidationMessageFor(m => m.PdfFile)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Main.Description)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextAreaFor(i => i.Main.Description, new { @class = "form-control", @placeholder = "Page URL", @tabindex = "3" })
+                        @Html.ValidationMessageFor(model => model.Main.Description)
+                    </div>
+                </div>
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        }
+
+    </div>
+</section>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
