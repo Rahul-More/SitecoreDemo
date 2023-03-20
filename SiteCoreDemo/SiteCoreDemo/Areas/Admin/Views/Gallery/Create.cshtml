@@ -1,0 +1,80 @@
+﻿@using SiteCoreDemo.Areas.Admin.Models;
+@model GalleryViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Admin_Layout.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <section class="content">
+        <div class="container">
+
+            <fieldset>
+                <legend>Gallery</legend>
+
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Gallery.Category)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(i => i.Gallery.Category, new { @class = "form-control", @placeholder = "Category Name", @tabindex = "1" })
+                        @Html.ValidationMessageFor(model => model.Gallery.Category)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Gallery.EventDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(i => i.Gallery.EventDate, new { @class = "form-control", @placeholder = "Event Name", @tabindex = "1" })
+                        @Html.ValidationMessageFor(model => model.Gallery.EventDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="editor-label">
+                        <label>Image</label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.FileImage, new { type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FileImage)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-label">
+                        <label>Is Enabled</label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(m => m.Gallery.IsEnabled, new { @class = "form-group" })
+                        @Html.ValidationMessageFor(m => m.Gallery.IsEnabled)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="editor-label">
+                        <label>Preference No</label>
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(m => m.Gallery.PreferenceNo)
+                        @Html.ValidationMessageFor(m => m.Gallery.PreferenceNo)
+                    </div>
+                </div>
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        </div>
+    </section>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

@@ -1,0 +1,85 @@
+﻿@using SiteCoreDemo.Areas.Admin.Models;
+@model IEnumerable<Gallery>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="row">
+        <div class="table table-responsive">
+            <div class="col-md-10 ">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Category)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SmallImageUrl)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LargeImageUrl)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IsEnabled)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PreferenceNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Created_Date)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EventDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SmallImageUrl)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LargeImageUrl)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsEnabled)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PreferenceNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Created_Date)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
