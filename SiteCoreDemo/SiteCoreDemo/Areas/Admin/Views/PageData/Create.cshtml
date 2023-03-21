@@ -1,0 +1,77 @@
+﻿@using SiteCoreDemo.Areas.Admin.Models;
+@model PagesData
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Admin_Layout.cshtml";
+}
+
+
+<section id="content">
+    <div class="container">
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                @using (@Html.BeginForm("Create", "PageData", FormMethod.Post, new { @class = "register-form" }))
+                {
+                    <h2>Add Page Data</h2>
+                    <hr class="colorgraph">
+                    @Html.ValidationSummary()
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(i => i.PageUrl, new { @class = "form-control", @placeholder = "Page URL", @tabindex = "3" })
+
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(i => i.PageTitle, new { @class = "form-control", @placeholder = "Page Title", @tabindex = "3" })
+
+                    </div>
+
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(i => i.Captions, new { @class = "form-control", @placeholder = "Page Caption", @tabindex = "3" })
+
+                    </div>
+
+                    <div class="form-group">
+
+                        @Html.TextAreaFor(i => i.Keywords, new { @class = "form-control", @rows = "5", @placeholder = "Keywords" })
+                    </div>
+
+                    <div class="form-group">
+
+                        @Html.TextAreaFor(i => i.Descriptions, new { @class = "form-control", @rows = "5", @placeholder = "Description" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><strong>Page Content</strong></label>
+                        @Html.TextAreaFor(i => i.PageContent, new { @class = "form-control", @rows = "5", @placeholder = "Page Content",id="pageContent" })
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <input type="submit" value="Add" class="btn btn-theme btn-block" tabindex="7">
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts
+    {
+
+    <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({ selector: '#pageContent' });
+    </script>
+
+
+
+    }

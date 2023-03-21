@@ -1,0 +1,64 @@
+﻿@using SiteCoreDemo.Models;
+@using System.Web;
+@model ConferencesViewModel
+@{
+    ViewBag.Title = @Model.Page.PageTitle;
+    ViewBag.Keywords = Model.Page.Keywords;
+    ViewBag.Description = Model.Page.Descriptions;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="featured" class="bg">
+    <div class="container">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="content" class="row text-justify" style="padding:1em;">
+                    <h2>Events/Conferences</h2>
+                    <p>List of All Events/Conferences</p>
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            @foreach (var item in Model.list)
+                            {
+                                string dd = "collapse" + item.ID.ToString();
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-target="#@dd">@item.Name</a>
+                                    </h4>
+                                </div>
+                                <div id="@dd" class="collapse" style="padding:2em;">
+                                    <h2>@item.Name </h2>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <img src="@item.ImageURL" height="200px" />
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h4>@item.EventDate.ToLongDateString()</h4>
+                                            <div>
+                                                <p>@item.Description</p>
+                                            </div>
+                                            @{
+                                                if (!string.IsNullOrEmpty(item.DetailURL))
+                                                {
+                                                    <a class="btn btn-primary" href="@item.DetailURL" target="_blank">For More Details</a>
+                                                }
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model.Page.PageContent))
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+

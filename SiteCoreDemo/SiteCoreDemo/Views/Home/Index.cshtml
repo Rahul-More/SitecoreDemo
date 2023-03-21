@@ -1,0 +1,252 @@
+﻿@using SiteCoreDemo.Models;
+@using System.Web;
+@model HomePageModel
+@{
+    ViewBag.Title = Model.pageData.PageTitle;
+    ViewBag.Keywords = Model.pageData.Keywords;
+    ViewBag.Description = Model.pageData.Descriptions;
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="description" content="@ViewBag.Description" />
+    <link rel="icon" src="~/favicon/favicon.ico"  />
+   @* @Styles.Render("~/Content/Theme/styles")*@
+</head>
+<body>
+    <div id="wrapper">
+        <!-- start header -->
+        <header>
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div>
+                                <div class="navbar-header aligncenter">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a style="text-align:center;" href="@Url.Action("Index","Home")"><img src="../../Content/Theme/logo/Sigtlogo.png" alt="Caliber Logo" height="60" width="100" /></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-10">
+                            <div class="row" style="text-align:center !important;     margin-top: .5rem;"><label style="color:darkblue; font-size:26px;">Tranforming a vision into Reality</label></div>
+                            <div style="text-align:center !important">
+                                <h1 style="margin-bottom:5px !important; margin-top:5px !important; text-align:center; color:red;"> Society of Image Guided Therapy</h1>
+                                <label style="text-align:center !important; font-size:18px; color:darkblue;">Together Everyone Achieves More.</label>
+                            </div>
+                            <div class="navbar-collapse collapse ">
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown active">
+                                        <a href="@Url.Action("Index","Home")" data-delay="0" data-close-others="false">Home</a>
+                                    </li>
+                                    <li><a href="@Url.Action("Objective", "Home")">Objectives</a></li>
+                                    <li><a href="@Url.Action("Members", "Home")">Members</a></li>
+                                    <li><a href="@Url.Action("Conferences", "Home")">Conferences</a></li>
+                                    <li><a href="@Url.Action("Workshops", "Home")">Future Workshops</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Registration <i class="fa fa-angle-down"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="~/Forms/SIGT Registration Form.pdf">Registration Form</a></li>
+                                            <li><a href="~/Forms/SIGT travel grant form.pdf">Travel Grant Form</a></li>
+                                            <li><a href="@Url.Action("Guidelines", "Home")">Travel Guidelines</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row" style="float:right !important; margin-bottom:10px; width:100%">
+                                <div class="col-lg-3"><div class="card" style="padding-left:1px; padding-right:1px;">SHARE</div></div>
+                                <div class="col-lg-3"><div class="card" style="padding-left:1px; padding-right:1px;">INNOVATE</div></div>
+                                <div class="col-lg-3"><div class="card" style="padding-left:1px; padding-right:1px;">COLLABORATE</div></div>
+                                <div class="col-lg-3"><div class="card" style="padding-left:1px; padding-right:1px;">EDUCATE</div></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+        <!-- end header -->
+
+        <section id="featured" class="bg">
+            <!-- start slider -->
+            <!-- Slider -->
+            <div>
+                <div style="margin-top:2em;">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div id="main-slider" class="main-slider flexslider">
+                            <ul class="slides">
+                                <li>
+
+                                    @*<img src="../../Images/slider/Slider1.jpg" alt="" />*@
+                                    <img src="~/images/slider/slider1.jpg" />
+
+                                </li>
+                                <li>
+
+                                    <img src="~/images/slider/slider2.jpg" />
+
+                                </li>
+                                <li>
+
+                                    <img src="~/images/slider/slider3.jpg" />
+                                </li>
+                                <li>
+
+                                    <img src="~/images/slider/slider4.jpg" />
+                                </li>
+                                <li>
+                                    <img src="~/images/slider/slider5.jpg" />
+
+                                </li>
+                                <li>
+                                    <img src="~/images/slider/slider6.jpg" />
+
+                                </li>
+                                <li>
+                                    <img src="~/images/slider/slider7.jpg" />
+
+                                </li>
+                                <li>
+                                    <img src="~/images/slider/slider8.jpg" />
+
+                                </li>
+                                <li>
+                                    <img src="~/images/slider/slider9.jpg" />
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="">
+                            <div>
+                                <label style="text-align: center;
+    color: red;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    height: 35px;
+    font-size: 22px;
+    padding-top: 4px;
+    width: 100%;">Upcoming event</label>
+                            </div>
+                            <div class="row">
+                                <marquee direction="up" style="max-height:450px; min-height:150px">
+                                    <div style="text-align:center; vertical-align:central">
+                                        <a class="kk" data-toggle="modal" style="color:white; font-size:20px" data-target="#myModal">Insights in Advanced cardiac imaging CME (18th August 2018)</a>
+                                    </div>
+                                </marquee>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <section id="content" style="max-height: 450px; overflow: scroll; margin-top:2em; margin-bottom :2em;">
+                                <div class="row text-justify">
+                                    @Html.Raw(HttpUtility.HtmlDecode(Model.pageData.PageContent))
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end slider -->
+        </section>
+
+
+
+    </div>
+    <!-- end header -->
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Event</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="~/Forms/EventAug2018.jpg" style="width:100%" height="100%" />
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" target="_blank" href="~/Forms/CME.pdf">for more details</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="copyright">
+                        <p>&copy; SIGT - All Right Reserved</p>
+
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <div class="col-md-6"><div class="widget"><a href="@Url.Action("About","Home")"><strong>About Us</strong></a></div></div>
+                    <div class="col-md-6"><div class="widget"><a href="@Url.Action("Contact","Home")"><strong>Contact Us</strong></a></div></div>
+                </div>
+            </div>
+        </div>
+        <div id="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="social-network">
+                            <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <style>
+        .summary {
+            color: #d9232d !important;
+        }
+
+        .kk :hover {
+            color: darkblue !important;
+        }
+    </style>
+
+    <style>
+        header .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+</body>
+</html>

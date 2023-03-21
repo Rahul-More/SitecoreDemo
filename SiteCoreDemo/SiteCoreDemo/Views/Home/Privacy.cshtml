@@ -1,0 +1,29 @@
+﻿@using SiteCoreDemo.Areas.Admin.Models;
+@using System.Web;
+@model PagesData
+@{
+	ViewBag.Title = Model.PageTitle;
+	ViewBag.Keywords = Model.Keywords;
+	ViewBag.Description = Model.Descriptions;
+}
+
+
+
+<section id="content">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row text-justify">
+					<h3 class="text-center"><u>Privacy and Policy</u></h3>
+
+					@Html.Raw(HttpUtility.HtmlDecode(Model.PageContent))
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</section>		
